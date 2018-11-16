@@ -9,5 +9,5 @@ for root, dirs, files in os.walk('test_env'):
     for d in dirs:
         if d[:].isupper():
             dlow = d[:].lower()
-            os.rename(d, dlow)
-            print('Set to lowercase: {0} > {1}'.format(d, dlow))
+            os.rename(os.path.join(root, d), os.path.join(root, dlow))
+            print('Set to lowercase: {0} > {1}'.format(os.path.join(root, d), os.path.join(root, dlow)))
