@@ -1,8 +1,14 @@
 import os
+import pyperclip
+
 
 # print(os.getcwd())
+basedir = os.getcwd()
 
-for root, dirs, files in os.walk('test_env'):
+if pyperclip.paste():
+    basedir = pyperclip.paste()
+
+for root, dirs, files in os.walk(basedir):
 
     '''print('Root path : ', root)
     print('Directories : ', dirs)
