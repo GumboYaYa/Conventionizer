@@ -1,5 +1,6 @@
 import os
 import pyperclip
+import pprint
 
 
 # print(os.getcwd())
@@ -31,18 +32,20 @@ print(basedir)
 basedir = os.getcwd()
 folders = []
 files = []
+filters = ['.', '_']
 
 for root, dirs, files in os.walk(basedir):
     d_index = 0
     for d in dirs:
-        if d[0] == '.':
+        if d[0] in filters:
             del dirs[d_index]
         else:
-            folders.append(d)
+            folders.append(os.path.join(root, d))
         d_index += 1
 
 print('Folders:')
-print(folders)
+for f in folders:
+    print(f)
 
 '''
 for root, dirs, files in os.walk(basedir):
